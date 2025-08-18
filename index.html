@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IP Adress Locator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+</style>
+    <script type="module" crossorigin src="/IP/assets/index-COZfJFJ9.js"></script>
+    <link rel="stylesheet" crossorigin href="/IP/assets/index-DPq8byfV.css">
+  </head>
+  <body style="margin:0; overflow:hidden;">
+
+
+    <div id="root"></div>
+    <script>
+     const logLines = document.querySelectorAll('.log-line');
+  const animationDuration = 3000; // 8 seconds in ms
+
+  logLines.forEach((line, index) => {
+    line.style.visibility = "hidden"; // hide initially
+  });
+
+  function revealLinesSequentially(lines, delay) {
+    let i = 0;
+
+    function showNext() {
+      if (i >= lines.length) return;
+
+      const line = lines[i];
+      line.style.visibility = "visible";
+      line.classList.add('typing');
+
+      setTimeout(() => {
+        line.classList.remove('typing');
+        i++;
+        showNext();
+      }, delay);
+    }
+
+    showNext();
+  }
+
+  // Start the typing effect when DOM is ready
+  window.addEventListener("DOMContentLoaded", () => {
+    revealLinesSequentially(logLines, animationDuration);
+  });
+
+    </script>
+  </body>
+</html>
